@@ -19,7 +19,11 @@
 
 <body>
     <div class="flex gap-4">
-
+        <ul class="flex flex-col gap-2">
+            @foreach ($products as $product)
+                <li>{{ $product->name }}</li>
+            @endforeach
+        </ul>
     </div>
 </body>
 
