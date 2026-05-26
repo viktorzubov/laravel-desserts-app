@@ -11,6 +11,8 @@
     --color-red: hsl(14, 86%, 42%);
     --color-green: hsl(159, 69%, 38%);
 
+    --color-white: hsl(0, 0%, 100%);
+
     --color-rose-50: hsl(20, 50%, 98%);
     --color-rose-100: hsl(13, 31%, 94%);
     --color-rose-300: hsl(14, 25%, 72%);
