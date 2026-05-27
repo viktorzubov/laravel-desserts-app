@@ -30,9 +30,9 @@ class Cart extends Model
 
     public function formattedTotal()
     {
-        $total = $this->items->sum(fn($item) => $item->product->price_cents * $item->quantity );
+        $total = $this->items->sum(fn ($item) => $item->product->price_cents * $item->quantity);
 
-        return Number::currency($total/100, 'USD');
+        return Number::currency($total / 100, 'USD');
     }
 
     public static function ifExists()
@@ -53,7 +53,7 @@ class Cart extends Model
     {
         $this->items()->firstOrCreate([
             'product_id' => $product->id,
-        ],[
+        ], [
             'quantity' => 0,
         ])->increment('quantity');
     }
@@ -62,9 +62,11 @@ class Cart extends Model
     {
         $item = $this->items->firstWhere('product_id', $product->id);
 
-        if (!$item) return;
+        if (! $item) {
+            return;
+        }
 
-        if($item->quantity > 1) {
+        if ($item->quantity > 1) {
             $item->decrement('quantity');
         } else {
             $item->delete();
