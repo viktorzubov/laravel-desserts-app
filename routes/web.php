@@ -11,6 +11,7 @@ Route::get('/', function () {
         'cart' => Cart::ifExists(),
     ]);
 });
+Route::post('/cart/clear', [CartController::class, 'emptyCart'])->name('cart.emptyCart');
 
 Route::post('/cart/{product}', [CartController::class, 'addOne'])->name('cart.addOne');
 Route::patch('/cart/{product}', [CartController::class, 'removeOne'])->name('cart.removeOne');

@@ -8,6 +8,13 @@ use App\Models\CartItem;
 
 class CartController extends Controller
 {
+    public function emptyCart()
+    {
+        Cart::ifExists()?->items()->delete();
+
+        return back();
+    }
+
     public function addOne(Product $product)
     {
         $cart = Cart::ensureExists();
