@@ -9,6 +9,8 @@ class CartItem extends Model
 {
     protected $fillable = ['cart_id', 'product_id', 'quantity'];
 
+    protected $touches = ['cart'];
+
     public function cart(): BelongsTo
     {
         return $this->belongsTo(Cart::class);

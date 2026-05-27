@@ -4,7 +4,7 @@
     <article>
         <img class="aspect-square object-cover rounded-xl" src="{{ Vite::asset('resources/images/' . $product->image) }}"
             alt="{{ $product->name }}">
-        <form method="POST" class="flex justify-center -mt-5">
+        <form action="{{ route('cart.addOne', $product) }}" method="POST" class="flex justify-center -mt-5">
             @csrf
             <button
                 class="bg-white border border-rose-500 hover:border-red hover:text-red rounded-full px-8 h-10 font-medium flex gap-2 items-center"

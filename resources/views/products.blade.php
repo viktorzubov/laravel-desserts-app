@@ -36,7 +36,7 @@
         </ul>
     </main>
 
-    <x-cart />
+    <x-cart :cart="$cart" />
 </body>
 
 
