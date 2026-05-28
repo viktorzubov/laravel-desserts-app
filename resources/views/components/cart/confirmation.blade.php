@@ -38,7 +38,8 @@
         </div>
         <form action="{{ route('cart.emptyCart') }}" method="POST">
             @csrf
-            <button type="submit" class="bg-red w-full rounded-full px-6 py-4 text-white">
+            <button type="submit"
+                class="bg-red hover:bg-red-dark w-full cursor-pointer rounded-full px-6 py-4 text-white transition">
                 Start New Order
             </button>
         </form>

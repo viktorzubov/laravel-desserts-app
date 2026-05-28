@@ -15,7 +15,7 @@
                 <form action="{{ route('cart.removeAll', $item) }}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="rounded-full border border-rose-500 p-0.5">
+                    <button type="submit" class="cursor-pointer rounded-full border border-rose-500 p-0.5">
                         <x-icons.delete class="size-2.5 rounded-full text-rose-500" />
                     </button>
                 </form>
@@ -33,7 +33,8 @@
         <p>This is a <span class="font-bold">carbon-neutral</span> delivery.</p>
     </div>
 
-    <button popovertarget="order-confirmation" class="bg-red rounded-full px-6 py-4 text-white">
+    <button popovertarget="order-confirmation"
+        class="bg-red hover:bg-red-dark cursor-pointer rounded-full px-6 py-4 text-white transition">
         Confirm Order
     </button>
 

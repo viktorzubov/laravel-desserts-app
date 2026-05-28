@@ -6,23 +6,25 @@
 
 <li class="aspect-square rounded-lg">
     <article>
-        <img class="aspect-square rounded-xl object-cover" src="{{ Vite::asset('resources/images/' . $product->image) }}"
-            alt="{{ $product->name }}">
+        <img class="{{ $quantity ? 'border-2 border-red' : '' }} aspect-square rounded-xl object-cover"
+            src="{{ Vite::asset('resources/images/' . $product->image) }}" alt="{{ $product->name }}">
         @if ($quantity)
             <div
                 class="bg-red mx-auto flex w-40 -translate-y-1/2 items-center justify-center gap-4 rounded-full px-3 py-3 text-white">
                 <form action="{{ route('cart.removeOne', $product) }}" method="POST">
                     @csrf
                     @method('PATCH')
-                    <button type="submit" class="rounded-full border-2 border-white p-1">
-                        <x-icons.decrement class="size-2.5 text-white" />
+                    <button type="submit"
+                        class="group cursor-pointer rounded-full border-2 border-white p-1 hover:bg-white">
+                        <x-icons.decrement class="group-hover:text-red size-2.5 text-white" />
                     </button>
                 </form>
                 <span class="flex-1 text-center">{{ $quantity }}</span>
                 <form action="{{ route('cart.addOne', $product) }}" method="POST">
                     @csrf
-                    <button type="submit" class="rounded-full border-2 border-white p-1">
-                        <x-icons.increment class="size-2.5 text-white" />
+                    <button type="submit"
+                        class="group cursor-pointer rounded-full border-2 border-white p-1 hover:bg-white">
+                        <x-icons.increment class="group-hover:text-red size-2.5 text-white" />
                     </button>
                 </form>
             </div>
