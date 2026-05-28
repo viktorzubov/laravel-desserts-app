@@ -6,36 +6,31 @@
 
 <li class="aspect-square rounded-lg">
     <article>
-        <img class="aspect-square object-cover rounded-xl" src="{{ Vite::asset('resources/images/' . $product->image) }}"
+        <img class="aspect-square rounded-xl object-cover" src="{{ Vite::asset('resources/images/' . $product->image) }}"
             alt="{{ $product->name }}">
         @if ($quantity)
-            <div class="flex items-center bg-red py-3 rounded-full text-white mx-auto px-3 -translate-y-1/2 w-40 justify-center gap-4">
-                <form
-                    action="{{ route('cart.removeOne', $product) }}" 
-                    method="POST"
-                >
+            <div
+                class="bg-red mx-auto flex w-40 -translate-y-1/2 items-center justify-center gap-4 rounded-full px-3 py-3 text-white">
+                <form action="{{ route('cart.removeOne', $product) }}" method="POST">
                     @csrf
-                    @method("PATCH")
-                    <button type="submit" class="border-2 border-white rounded-full p-1">
+                    @method('PATCH')
+                    <button type="submit" class="rounded-full border-2 border-white p-1">
                         <x-icons.decrement class="size-2.5 text-white" />
                     </button>
                 </form>
-                <span class="flex-1 text-center">{{$quantity}}</span>
-                <form 
-                    action="{{ route('cart.addOne', $product) }}" 
-                    method="POST"
-                >
+                <span class="flex-1 text-center">{{ $quantity }}</span>
+                <form action="{{ route('cart.addOne', $product) }}" method="POST">
                     @csrf
-                    <button type="submit" class="border-2 border-white rounded-full p-1">
+                    <button type="submit" class="rounded-full border-2 border-white p-1">
                         <x-icons.increment class="size-2.5 text-white" />
                     </button>
                 </form>
             </div>
-        @else    
-            <form action="{{ route('cart.addOne', $product) }}" method="POST" class="flex justify-center -mt-5">
+        @else
+            <form action="{{ route('cart.addOne', $product) }}" method="POST" class="-mt-5 flex justify-center">
                 @csrf
                 <button
-                    class="bg-white border border-rose-500 hover:border-red hover:text-red rounded-full px-8 h-10 font-medium flex gap-2 items-center"
+                    class="hover:border-red hover:text-red flex h-10 items-center gap-2 rounded-full border border-rose-500 bg-white px-8 font-medium"
                     type="submit">
                     <x-icons.add-to-cart />
                     <span>Add to cart</span>
@@ -44,6 +39,6 @@
         @endif
         <p class="mt-4 text-rose-500">{{ $product->category }}</p>
         <h2 class="text-lg font-medium">{{ $product->name }}</h2>
-        <p class="font-medium text-red">{{ $product->formattedPrice() }}</p>
+        <p class="text-red font-medium">{{ $product->formattedPrice() }}</p>
     </article>
 </li>

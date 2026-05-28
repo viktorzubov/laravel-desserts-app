@@ -1,8 +1,8 @@
 @props(['cart'])
 
 <aside>
-    <div class="bg-white p-6 rounded-xl">
-        <h2 class="text-red font-bold text-2xl">Your Cart ({{ $cart?->totalItemsCount() ?? 0 }})</h2>
+    <div class="rounded-xl bg-white p-6">
+        <h2 class="text-red text-2xl font-bold">Your Cart ({{ $cart?->totalItemsCount() ?? 0 }})</h2>
         @if ($cart?->totalItemsCount())
             <x-cart.active :cart="$cart" />
         @else

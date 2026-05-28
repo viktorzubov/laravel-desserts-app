@@ -4,10 +4,14 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+        "format:php": "vendor/bin/pint",
+        "format:blade": "blade-formatter \"resources/views/**/*.blade.php\" --write",
+        "format": "npm run format:php && npm run format:blade"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",
+        "blade-formatter": "^1.44.4",
         "concurrently": "^9.0.1",
         "laravel-vite-plugin": "^3.1",
         "tailwindcss": "^4.0.0",

@@ -17,11 +17,11 @@
     @endif
 </head>
 
-<body class="max-w-360 mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-[1fr_480px] bg-rose-50 py-16 gap-8">
+<body class="max-w-360 mx-auto grid gap-8 bg-rose-50 px-4 py-16 sm:px-6 md:grid-cols-[1fr_480px] lg:px-8">
     <main>
         <h1 class="text-5xl font-bold">Desserts</h1>
-        
-        <ul class="grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 mt-10">
+
+        <ul class="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
             @foreach ($products as $product)
                 <x-product :product="$product" :cart=$cart />
             @endforeach
