@@ -1,9 +1,9 @@
 @props(['cart'])
 
-<div class="starting:scale-95 starting:opacity-0 transition-discrete m-auto max-h-dvh translate-y-1 bg-transparent opacity-0 transition duration-300 backdrop:bg-black/50 backdrop:backdrop-blur-sm open:flex open:translate-y-0 open:flex-col open:gap-6 open:opacity-100"
+<div class="starting:scale-95 starting:opacity-0 transition-discrete m-auto max-h-[calc(100dvh-2rem)] translate-y-1 bg-transparent opacity-0 transition duration-300 backdrop:bg-black/50 backdrop:backdrop-blur-sm open:flex open:translate-y-0 open:flex-col open:gap-6 open:opacity-100"
     popover id="order-confirmation">
     <div class="w-120 max-w-full rounded-lg bg-white p-8">
-        <x-icons.confirm class="text-green size-12" />
+        <x-icons.confirm class="text-green size-12 shrink-0" />
         <div>
             <h2 class="text-2xl font-bold">Order Confirmed!</h2>
             <p class="mt-2">We hope you enjoy your food!</p>
